@@ -1,0 +1,113 @@
+<% layout('../layouts/boilerplate')
+   %>
+
+    <h1 class="display-4 my-5">Your Cart Items</h1>
+    <button class="btn btn-warning float-end"
+            style=" transform: translate(-100%,-150%);"><a href="/getOrderHistory"
+           style="text-decoration: none; color: whitesmoke;">Order History</a></button>
+
+    <% if(equipItems.length===0
+       &&
+       fertItems.length===0)
+       {%>
+        <div class="text-center ml-5">
+            <img src="https://www.seekpng.com/png/detail/117-1170538_404-your-cart-is-empty.png"
+               style="margin-left: 3cm;"  alt="">
+            <button class="btn btn-primary my-5 d-block"
+                    style=" transform: translateX(550%);"><a style="color: azure; text-decoration: none;"
+                   href="/equipments">Show Now!</a></button>
+        </div>
+        <% }
+           else
+           {%>
+
+            <% for(let
+               fertItem
+               of
+               fertItems)
+               {
+               %>
+                <div class="card my-3 p-3">
+                    <div class="row">
+                        <div class="col-4 p-0 m-0">
+                            <img src="<%= fertItem.fimg %>"
+                                 style="width: 350px;"
+                                 class="card-img-top"
+                                 alt="...">
+                        </div>
+                        <div class="col-6">
+                            <div class="card-body">
+                                <h5 class="card-title display-3"><b>
+                                        <%= fertItem.fname
+                                            %>
+                                    </b> </h5>
+                                <p class="card-text">
+                                    <%= fertItem.fdesc
+                                        %>
+                                </p>
+                                <p class="card-text">Quantity: <b>
+                                        <%= fertItem.fquantity
+                                            %>
+                                    </b></p>
+                                <p class="card-text display-4 text-primary"><b>&#8377;<%= fertItem.fprice
+                                            %></b> </p>
+                                <form action="/ferilizer/removeItem/<%= fertItem.fid %>?_method=DELETE"
+                                      method="POST">
+                                    <button class="btn btn-danger btn-sm">REMOVE</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }
+                   %>
+
+                    <% for(let
+                       equipItem
+                       of
+                       equipItems)
+                       {
+                       %>
+                        <div class="card my-3 p-3">
+                            <div class="row">
+                                <div class="col-4 p-0 m-0">
+                                    <img src="<%= equipItem.eimg %>"
+                                         style="width: 350px;"
+                                         class="card-img-top"
+                                         alt="...">
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title display-3"><b>
+                                                <%= equipItem.ename
+                                                    %>
+                                            </b> </h5>
+                                        <p class="card-text">
+                                            <%= equipItem.edesc
+                                                %>
+                                        </p>
+                                        <p class="card-text display-4 text-primary"><b>&#8377;<%= equipItem.eprice
+                                                    %></b> </p>
+                                        <form action="/equipment/removeItem/<%= equipItem.eid %>?_method=DELETE"
+                                              method="POST">
+                                            <button class="btn btn-danger btn-sm">REMOVE</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }
+                           %>
+
+                            <div class="card p-4 mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <p class="card-title display-6 text-primary">Total Price: <b>&#8377; <%= totalPrice
+                                                %> </b></p>
+                                    <form action="/ordersBooked"
+                                          method="POST">
+                                        <button class="btn btn-success">ORDER NOW</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <% }
+                               %>

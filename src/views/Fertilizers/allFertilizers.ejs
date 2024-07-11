@@ -1,0 +1,29 @@
+<% layout('../layouts/boilerplate') %>
+
+<!-- header -->
+<h1 class="display-4 mt-5 mb-2 text-secondary" > ALL FERTILIZERS</h1>
+
+<!-- btn -->
+<% if(username === 'agasthyasunil@gmail.com' || username === 'yohanswamy@gmail.com') {%> 
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-warning"><a style="text-decoration: none; color: black;" href="/fertilizer/new">ADD FERTILIZER</a></button>
+    </div>
+<% } %> 
+
+<!-- contents -->
+<div class="row">
+   <% for(let i=0; i<fertilizers.length; i++) { %> 
+        <div class="col-4">
+            <div class="card shadow border border-success my-3 fs-5 d-flex justify-between">
+                <img src="<%= fertilizers[i].fimg %> " class="card-img-top my-3 mx-4" alt= "." style="width: 350px; height: 400px;">
+                    <div class="card-body">
+                        <h4 class="card-title fs-1"><%= fertilizers[i].fname %> </h4>
+                        <p class="card-text">Category: <%= fertilizers[i].catname %> </p>
+                        <p class="card-text">Quantity: <%= fertilizers[i].fquantity %> </p>
+                        <p class="card-text">Price: $<%= fertilizers[i].fprice %> </p>
+                        <a href="fertilizer/<%= fertilizers[i].fid %> " class="btn btn-primary text-light mt-5">View Product</a>
+                    </div>
+            </div>
+        </div>
+    <% } %> 
+</div>

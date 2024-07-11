@@ -1,0 +1,75 @@
+<% layout('../layouts/boilerplate')%>
+
+<h1 class="mt-5 fs-2 text-center text-muted"><b> Order History Of <%= username %> </b></h1>
+
+<div class="card mb-5 mt-3 p-3">
+    <div class="row p-3">
+        <h1 class="display-2"> EASY FARMING</h1>
+        <hr>
+    </div>
+    <div class="row card-body">
+        <div class="col-6">
+            <h5 class="card-title">Seller Details:</h5>
+            <p class="card-text mb-0 mx-3"><b>Easy_farming.Pvt.Ltd</b></p>
+            <p class="card-text mb-0 mx-3">#104, 1st floor, ISE Block</p>
+            <p class="card-text mb-0 mx-3">VidyaVardhaka college of Engineering</p>
+            <p class="card-text mb-0 mx-3">Mysore, Karnataka, India</p>
+            <p class="card-text mb-0 mx-3">570002</p>
+        </div>
+        
+        <div class="col-4 offset-2">
+            <h5 class="card-title ">Recipient Details:</h5>
+            <p class="card-text mb-0 mx-3"><b><%= userInfo.fname %> <%= userInfo.lname %>  </b></p>
+            <p class="card-text mb-0 mx-3"><%= userInfo.username %></p>
+            <p class="card-text mb-0 mx-3"><%= userInfo.phone %></p>
+            <p class="card-text mb-0 mx-3"><%= userInfo.street %>, <%= userInfo.city %> </p>
+            <p class="card-text mb-0 mx-3"><%= userInfo.state %>, India </p>
+            <p class="card-text mb-0 mx-3"><%= userInfo.pincode %> </p>
+        </div>
+    </div>
+    
+    <div class="mt-5">
+        <table class="table table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">PRODUCT NAME</th>
+                    <th scope="col">ORDER DATE</th>
+                    <th scope="col">PRODUCT ID</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">GST CHARGES</th>
+                    <th scope="col">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let fertilizer of fertOrders) {%> 
+                <tr>
+                    <td><%= fertilizer.fname %> </td>
+                    <td><%= Date().toString().slice(0, 24) %> </td>
+                    <td><%= fertilizer.fid %> </td>
+                    <td><%= fertilizer.fquantity %>g </td>
+                    <td><%= fertilizer.fprice %> </td>
+                    <td> 35 </td>
+                    <td><b><%= fertilizer.fprice + 35%></b> </td>
+                </tr>
+                <% } %> 
+                <% for(let equipment of equipOrders) {%> 
+                <tr>
+                    <td><%= equipment.ename %> </td>
+                    <td><%= Date().toString().slice(0, 24) %> </td>
+                    <td><%= equipment.eid %> </td>
+                    <td> &nbsp;&nbsp;&nbsp;&nbsp;- </td>
+                    <td><%= equipment.eprice %> </td>
+                    <td> 67 </td>
+                    <td><b><%= equipment.eprice + 67 %> </b></td>
+                </tr>
+                <% } %> 
+                <tr class="fs-5">
+                    <td colspan="6"><b>Total Price: </b></td>
+                    <td> <b> &#8377; <%= totalPrice %> </b></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

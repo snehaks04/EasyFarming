@@ -1,0 +1,153 @@
+<% layout('../layouts/boilerplate')
+   %>
+       <div class="d-flex justify-content-end"
+            style="transform: translateX(-9%);">
+              <button class="btn btn-warning mt-5"><a style="text-decoration: none; color: black;"
+                        href="/fertilizer/<%= fertilizerDetails.fid %> ">Back</a></button>
+       </div>
+       <h1 class="text-center">Edit Product <%= fertilizerDetails.fname
+                  %>
+       </h1>
+       <div class="row my-5">
+              <div class="col-10 offset-1">
+                     <form class="row g-4 validated-form"
+                           action="http://localhost:5000/fertilizer/<%= fertilizerDetails.fid %>/?_method=put"
+                           novalidate
+                           method="post">
+                            <div class="col-md-6">
+                                   <label for="fid"
+                                          class="form-label">Product ID</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="fid"
+                                          name="fid"
+                                          required
+                                          value=<%=fertilizerDetails.fid
+                                          %>>
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="fname"
+                                          class="form-label">Product Name</label>
+                                   <input type="text"
+                                          class="form-control"
+                                          id="fname"
+                                          name="fname"
+                                          required
+                                          value="<%= fertilizerDetails.fname %> ">
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="catno"
+                                          class="form-label">Category Number ID</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="catno"
+                                          name="catno"
+                                          required
+                                          value=<%=fertilizerDetails.catno
+                                          %> >
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="catname"
+                                          class="form-label">Category Name</label>
+                                   <select id="catname"
+                                           class="form-select"
+                                           name="catname"
+                                           value="<%= fertilizerDetails.catname %> ">
+                                          <option>Fertilizer</option>
+                                          <option>Pesticide</option>
+                                   </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="crop_name"
+                                          class="form-label">Crop Name</label>
+                                   <input type="text"
+                                          class="form-control"
+                                          id="crop_name"
+                                          name="crop_name"
+                                          value="<%= cropNames%>">
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="no_of_copies"
+                                          class="form-label">Number Of Copies</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="no_of_copies"
+                                          name="no_of_copies"
+                                          required
+                                          value=<%=no_of_copies
+                                          %> >
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                   <label for="imgsrc"
+                                          class="form-label">Image Src (URL)</label>
+                                   <input type="text"
+                                          class="form-control"
+                                          id="imgsrc"
+                                          name="fimg"
+                                          required
+                                          placeholder="https://5.imimg.com/data5/FM/YM/KF/SELLER-82936137/florich-npk-water-soluble-fertilizer-500x500.jpg"
+                                          value="<%= fertilizerDetails.fimg %> ">
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="fprice"
+                                          class="form-label">Product Price</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="fprice"
+                                          name="fprice"
+                                          required
+                                          value=<%=fertilizerDetails.fprice
+                                          %> >
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="fquantity"
+                                          class="form-label">Product Quantity</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="fquantity"
+                                          name="fquantity"
+                                          required
+                                          value=<%=fertilizerDetails.fquantity
+                                          %> >
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                   <label for="fdesc"
+                                          class="form-label">Product description</label>
+                                   <textarea name="fdesc"
+                                             id="fdesc"
+                                             name="fdesc"
+                                             required
+                                             class="form-control"><%= fertilizerDetails.fdesc %></textarea>
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-12">
+                                   <button class="btn btn-success">Save Updates</button>
+                            </div>
+                     </form>
+              </div>
+       </div>

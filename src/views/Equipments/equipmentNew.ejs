@@ -1,0 +1,151 @@
+<% layout('../layouts/boilerplate')
+   %>
+       <h1 class="mt-5 mb-2"
+           style="transform: translateX(9%); color: #bfd200">ADD EQUIPMENT</h1>
+       <div class="d-flex justify-content-end"
+            style="transform: translateX(-9%);">
+
+              <button class="btn btn-warning "><a style="text-decoration:none; color: black;"
+                        href="/equipments">ALL EQUIPMENTS</a></button>
+       </div>
+
+       <div class="row mb-5">
+              <div class="col-10 offset-1">
+                     <form class="row g-4 validated-form"
+                           action="http://localhost:5000/equipment/new"
+                           novalidate
+                           method="post">
+                            <div class="col-md-6">
+                                   <label for="eid"
+                                          class="form-label">Equipment ID</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="eid"
+                                          required
+                                          name="eid">
+                                   <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="ename"
+                                          class="form-label">Equipment Name</label>
+                                   <input type="text"
+                                          class="form-control"
+                                          id="ename"
+                                          required
+                                          name="ename">
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="ecatno"
+                                          class="form-label">Equipment Category Number</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="ecatno"
+                                          required
+                                          name="ecatno">
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sid"
+                                       class="form-label">Equipment Seller ID</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="sid"
+                                       required
+                                       name="sid">
+                                <div class="valid-feedback">Looks good!</div>
+                         </div>
+
+                         <div class="col-md-6">
+                            <label for="emodel"
+                                   class="form-label">Model Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="emodel"
+                                   required
+                                   name="emodel">
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="eguarentee"
+                                   class="form-label">Guarantee Period</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="eguarentee"
+                                   required
+                                   name="eguarentee">
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+
+                            
+                            <div class="col-md-12">
+                                   <label for="eimg"
+                                          class="form-label">Equipment Image URL</label>
+                                   <input type="text"
+                                          class="form-control"
+                                          id="eimg"
+                                          name="eimg"
+                                          required
+                                          placeholder="https://5.imimg.com/data5/MD/RD/YR/SELLER-113709/agricultural-knapsack-sprayer-500x500.jpg">
+                                   <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="eno_of_copies"
+                                       class="form-label">Number Of Copies</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="eno_of_copies"
+                                       required
+                                       name="eno_of_copies">
+                                <div class="valid-feedback">Looks good!</div>
+                         </div>
+
+                         <div class="col-md-4 ">
+                                <label for="eprice"
+                                       class="form-label">Equipment Price</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="eprice"
+                                       required
+                                       name="eprice">
+                                <div class="valid-feedback">Looks good!</div>
+                         </div>
+
+
+                            <div class="col-md-4">
+                                   <label for="emfg"
+                                          class="form-label">Mfg Date</label>
+                                   <input type="date"
+                                          class="form-control"
+                                          id="emfg"
+                                          required
+                                          name="emfg">
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                   <label for="edesc"
+                                          class="form-label">Equipment description</label>
+                                   <textarea name="edesc"
+                                             id="edesc"
+                                             required
+                                             class="form-control"></textarea>
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col">
+                                   <button type="submit"
+                                           class="btn btn-primary">Add Equipment</button>
+                            </div>
+                     </form>
+              </div>
+       </div>

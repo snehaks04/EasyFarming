@@ -1,0 +1,114 @@
+<% layout('../layouts/boilerplate')
+   %>
+
+   <link rel="stylesheet" href="/css/star.css">
+
+<div class="card mt-5 p-4">
+    <div class="row">
+        <div class="col-md-5">
+                <img src="<%= fertilizer.fimg %> " class="img-fluid rounded-start mr-5" alt="...">
+        </div>
+        <div class="col-md-7" style="font-weight: 500;">
+            <div class="card-body">
+                <h3 class="card-title display-2 mb-1"><%= fertilizer.fname %> </h3>
+                <h4 class="text-uppercase"><%= fertilizer.catname %> <span class="badge bg-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                  </svg> <% if(rating) { %>  <%= rating %> <% } else {%> 0 <% } %> </span></h4>
+                <h4 class="display-3 text-primary my-3">&#8377;<%= fertilizer.fprice %> </h4>
+                <p class="card_text mb-2">Available: <%= fertCount.no_of_copies %> packets </p>
+
+                <p class="card_text mb-2">Quantity: <%= fertilizer.fquantity %>g </p>
+                <div class="d-flex justify-content-between" style="width: 80%;">
+                    <p class="card_text mb-2">Manufacture Date: <%= fertilizer.fmfg.toString().slice(0, 15) %> </p>
+                    <p class="card_text mb-2">Expire Date: <%= fertilizer.fexp.toString().slice(0, 15) %> </p>
+                </div>
+                <p class="card_text mb-4">Crops Affected: <% for(let crop of crops) { %> 
+                    <%= crop.crop_name %> ,
+                        <% } %> 
+                </p>
+                <div class="d-flex flex-column">
+                    <p class="card-text my-1">About this item: </p>
+                    <p class="card-text"> <%= fertilizer.fdesc %></p>
+                </div>
+
+                <% if(username === 'agasthyasunil@gmail.com' || username === 'yohanswamy@gmail.com') {%> 
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-warning"><a href="/fertilizer/edit/<%= fertilizer.fid %> " style="text-decoration: none; color: black;">EDIT</a></button>
+
+                    <form action="http://localhost:5000/fertilizer/<%= fertilizer.fid %>/?_method=delete" method="post">
+                        <button class="btn btn-danger">DELETE</button>
+                    </form>
+                </div>
+                <% } %>
+
+                <% if(!(username === 'agasthyasunil@gmail.com' || username === 'yohanswamy@gmail.com')) { %> 
+                    <div class="d-flex justify-content-center mt-4">
+                        <form action="/fertilizer/<%= fertilizer.fid %>/tocart" method="post">
+                            <button class="btn btn-info p-3" style="width: 5cm;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="transform: translateY(-.5mm);" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                              </svg> &nbsp;&nbsp; ADD TO CART</button>
+                        </form>
+                    </div>
+                <% } %> 
+            </div>  
+        </div>        
+    </div>
+</div>
+
+<div class="card mb-5 p-4">
+    <h4 class="card-title">Leave a Review</h4>
+<div class="row">
+    <div class="col-md-6">
+        <form action="/fertilizer/<%= fertilizer.fid %>/review" class="validated-form" method="POST" novalidate>
+            <!-- <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" required>
+                <div class="valid-feedback">Looks good!</div>
+
+            </div> -->
+
+            <div class="mb-3">
+                <label class="form-label" for="rating">Rating</label>
+                <fieldset class="starability-basic">
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" />
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="review">Review</label>
+                <input type="text" class="form-control" name="reviews" id="review" required>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <button class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <% for(let review of reviews ) { %> 
+            <div class="row my-3">
+                    <h5 class="card-title">Review by: <%= review.username %> </h5>
+
+                    <p class=" starability-result card-subtitle mx-4 my-2" data-rating="<%= review.rating %>"> Rated: <%= review.rating %> stars</p>
+
+
+                    <p class="mx-4 mt-0 mb-2 p-2 pt-1 card-body">Comment : <%= review.reviews %> </p>
+                    <% if(review.username === username) { %> 
+                    <form action="http://localhost:5000/fertilizer/<%=fertilizer.fid%>/reviews/<%=review.username%>/?_method=delete" method="POST">
+                        <button class="btn-sm btn btn-danger mx-4 mb-3">Delete</button>
+                    </form>
+                    <% } %> 
+            </div>
+            <% } %> 
+    </div>
+</div>
+</div>
+

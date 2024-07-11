@@ -1,0 +1,150 @@
+<% layout('../layouts/boilerplate') %>
+       <div class="d-flex justify-content-end"
+            style="transform: translateX(-9%);">
+              <button class="btn btn-warning mt-5"><a style="text-decoration: none; color: black;"
+                        href="/equipment/<%= equipmentDetails.eid %> ">Back</a></button>
+       </div>
+       <h1 class="text-center">Edit Equipment <%= equipmentDetails.ename
+                  %>
+       </h1>
+       <div class="row my-5">
+              <div class="col-10 offset-1">
+                     <form class="row g-4 validated-form"
+                           action="http://localhost:5000/equipment/<%= equipmentDetails.eid %>/?_method=put"
+                           novalidate
+                           method="post">
+                            <div class="col-md-6">
+                                   <label for="eid"
+                                          class="form-label">Equipment ID</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="eid"
+                                          name="eid"
+                                          required
+                                          value=<%=equipmentDetails.eid
+                                          %>>
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="ename"
+                                          class="form-label">Equipment Name</label>
+                                   <input type="text"
+                                          class="form-control"
+                                          id="ename"
+                                          name="ename"
+                                          required
+                                          value="<%= equipmentDetails.ename %> ">
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                   <label for="ecatno"
+                                          class="form-label">Equipment Category Number</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="ecatno"
+                                          name="ecatno"
+                                          required
+                                          value=<%=equipmentDetails.ecatno
+                                          %> >
+                                   <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sid"
+                                       class="form-label">Equipment Seller Number</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="sid"
+                                       name="sid"
+                                       required
+                                       value=<%=equipmentDetails.sid
+                                       %> >
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="eimg"
+                                       class="form-label">Equipment Image Src (URL)</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="eimg"
+                                       name="eimg"
+                                       required
+                                       value="<%= equipmentDetails.eimg %> ">
+                                <div class="valid-feedback">Looks good!</div>
+
+                         </div>
+
+                            <div class="col-md-6">
+                                <label for="emodel"
+                                       class="form-label">Equipment Model Number</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="emodel"
+                                       name="emodel"
+                                       required
+                                       value=<%=equipmentDetails.emodel
+                                       %> >
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="eguarentee"
+                                       class="form-label">Equipment Guarantee Period</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="eguarentee"
+                                       name="eguarentee"
+                                       required
+                                       value=<%=equipmentDetails.eguarentee
+                                       %> >
+                                <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="eno_of_copies"
+                                       class="form-label">Number Of Copies</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="eno_of_copies"
+                                       name="eno_of_copies"
+                                       required
+                                       value=<%=eno_of_copies
+                                       %> >
+                                <div class="valid-feedback">Looks good!</div>
+                         </div>
+
+                            <div class="col-md-6">
+                                   <label for="eprice"
+                                          class="form-label">Equipment Price</label>
+                                   <input type="number"
+                                          class="form-control"
+                                          id="eprice"
+                                          name="eprice"
+                                          required
+                                          value=<%=equipmentDetails.eprice
+                                          %> >
+                                   <div class="valid-feedback">Looks good!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                   <label for="edesc"
+                                          class="form-label">Equipment description</label>
+                                   <textarea name="edesc"
+                                             id="edesc"
+                                             required
+                                             class="form-control"><%= equipmentDetails.edesc %></textarea>
+                                   <div class="valid-feedback">Looks good!</div>
+
+                            </div>
+
+                            <div class="col-12">
+                                   <button class="btn btn-success">Save Updates</button>
+                            </div>
+                     </form>
+              </div>
+       </div>

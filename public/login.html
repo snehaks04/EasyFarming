@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet"
+            href="./css/login.css">
+      <link rel="preconnect"
+            href="https://fonts.googleapis.com">
+      <link rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+            rel="stylesheet">
+      <title>LOGIN PAGE</title>
+</head>
+
+<body>
+      <div class="cover">
+            <form action="#"
+                  method="POST" novalidate class="validated-form">
+
+                  <div class="username">
+                        <img src="./util/email.jpg"
+                             alt=""
+                             class="img1">
+                        <label for="username"
+                               id="usernameLabel">USERNAME</label>
+                        <input type="email"
+                               id="username"
+                               name="username"
+                               required>
+                  </div>
+
+                  <div class="password">
+                        <img src="./util/lock.png"
+                             alt=""
+                             class="img2">
+                        <label for="password"
+                               id="passwordLabel">PASSWORD</label>
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               required>
+                  </div>
+
+                  <div class="role">
+                        <label for="role">Role: </label>
+                        <label style="padding-left: 15px;"
+                               for="admin">Admin</label>
+                        <input type="radio"
+                               name="role"
+                               id="admin">
+                        <label for="normal">Normal</label>
+                        <input type="radio"
+                               name="role"
+                               id="normal">
+                  </div>
+
+                  <button>LOGIN</button>
+            </form>
+
+            <div class="footer">
+                  <a href="#">Forgot password ?</a>
+
+                  <a href="file:///E:/V%20SEM/LABS/DBMS%20MINI%20PROJECT/FRONT%20END/login/register.html">Register Now
+                        !</a>
+            </div>
+      </div>
+<script src="/javascript/validateForm.js"></script>
+</body>
+
+</html>
